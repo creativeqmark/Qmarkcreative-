@@ -1,0 +1,9 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "W7eCgo-Vkxd-PZq79TfCq"
+uri = "file://qmark-creative-dist%20(1).zip"
+type = "unspecified"
+title = "Updated QMark Creative Website"
+description = "Updated loading screen and homepage design using the exact uploaded QMark logo. Existing functionality, portfolio media, bundle, and other assets are preserved; no Git operations were performed."
