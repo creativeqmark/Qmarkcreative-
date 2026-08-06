@@ -2,115 +2,35 @@
   "use strict";
 
   var officialLogo = "qmark-official.png";
+  var heroArtwork = "attached_assets/generated_images/qmark-diwali-hero-background.png";
 
-  function addHeroVisual(hero) {
-    if (hero.querySelector(".qmark-hero-visual")) return;
+  function addHeroArtwork(hero) {
+    if (hero.querySelector(".qmark-hero-artwork")) return;
 
-    var visual = document.createElement("div");
-    visual.className = "qmark-hero-visual";
-    visual.setAttribute("aria-hidden", "true");
+    var artwork = document.createElement("div");
+    artwork.className = "qmark-hero-artwork";
+    artwork.setAttribute("aria-hidden", "true");
 
-    var halo = document.createElement("div");
-    halo.className = "qmark-hero-visual__halo";
+    var background = document.createElement("img");
+    background.className = "qmark-hero-artwork__background";
+    background.src = heroArtwork;
+    background.alt = "";
 
     var logo = document.createElement("img");
-    logo.className = "qmark-hero-visual__logo";
+    logo.className = "qmark-hero-artwork__logo";
     logo.src = officialLogo;
     logo.alt = "";
 
-    var diyaGlow = document.createElement("div");
-    diyaGlow.className = "qmark-hero-visual__diya-glow";
-
-    var diya = document.createElement("div");
-    diya.className = "qmark-hero-visual__diya";
-    diya.innerHTML = "<span></span><i></i>";
-
-    visual.appendChild(halo);
-    visual.appendChild(logo);
-    visual.appendChild(diyaGlow);
-    visual.appendChild(diya);
-    hero.appendChild(visual);
-  }
-
-  function decorateHero(hero) {
-    if (!hero) return;
-
-    hero.classList.add("qmark-home-original");
-    var copy = hero.firstElementChild;
-    if (copy) {
-      copy.classList.add("qmark-hero-copy");
-      var children = copy.children;
-      if (children[0]) children[0].classList.add("qmark-hero-badge");
-      if (children[1]) children[1].classList.add("qmark-hero-title");
-      if (children[2]) children[2].classList.add("qmark-hero-description");
-      if (children[3]) children[3].classList.add("qmark-hero-actions");
-
-      var offerings = children[4];
-      if (offerings) {
-        offerings.classList.add("qmark-hero-offerings");
-        hero.appendChild(offerings);
-      }
-    }
-
-    addHeroVisual(hero);
-  }
-
-  function decorateServices() {
-    var services = document.getElementById("services");
-    if (!services) return;
-    services.classList.add("qmark-reference-section", "qmark-services-section");
-
-    var grid = services.querySelector(".grid");
-    if (grid) {
-      grid.classList.add("qmark-reference-grid", "qmark-services-grid");
-      Array.prototype.forEach.call(grid.children, function (card) {
-        card.classList.add("qmark-reference-card", "qmark-service-card");
-      });
-    }
-  }
-
-  function decoratePortfolio() {
-    var work = document.getElementById("work");
-    if (!work) return;
-    work.classList.add("qmark-reference-section", "qmark-portfolio-section");
-
-    var grid = work.querySelector(".grid");
-    if (grid) {
-      grid.classList.add("qmark-reference-grid", "qmark-portfolio-grid");
-      Array.prototype.forEach.call(grid.children, function (card) {
-        card.classList.add("qmark-reference-card", "qmark-portfolio-card");
-      });
-    }
-  }
-
-  function decorateFooter() {
-    var footer = document.querySelector("footer");
-    if (!footer) return;
-    footer.classList.add("qmark-reference-footer");
-
-    var inner = footer.firstElementChild;
-    if (inner) {
-      inner.classList.add("qmark-footer-inner");
-      Array.prototype.forEach.call(inner.children, function (child, index) {
-        child.classList.add("qmark-footer-block", "qmark-footer-block-" + index);
-      });
-    }
-  }
-
-  function decorateNavigation() {
-    var nav = document.querySelector("nav");
-    if (nav) nav.classList.add("qmark-reference-nav");
+    artwork.appendChild(background);
+    artwork.appendChild(logo);
+    hero.appendChild(artwork);
   }
 
   function enhanceHomepage() {
     var hero = document.getElementById("home");
     if (!hero) return false;
-
-    decorateHero(hero);
-    decorateServices();
-    decoratePortfolio();
-    decorateFooter();
-    decorateNavigation();
+    hero.classList.add("qmark-home-original");
+    addHeroArtwork(hero);
 
     var navbarLogo = document.querySelector("nav img[src*='qmark-logo.png']");
     if (navbarLogo) {

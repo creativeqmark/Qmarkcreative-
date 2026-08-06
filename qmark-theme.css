@@ -4,11 +4,6 @@
   --qmark-white: #ffffff;
   --qmark-gray: #f8f9fa;
   --qmark-line: #e8ebf0;
-  --qmark-navy: #0b1834;
-  --qmark-sky: #eef5ff;
-  --qmark-gold: #e7b44b;
-  --qmark-gold-soft: rgba(231, 180, 75, .18);
-  --qmark-shadow: 0 16px 42px rgba(35, 72, 137, .08);
 }
 
 html {
@@ -22,40 +17,11 @@ body {
 }
 
 #home.qmark-home-original {
+  position: relative;
   isolation: isolate;
-  background-color: #fcfdff;
-  background-image:
-    radial-gradient(circle at 72% 20%, rgba(235, 193, 108, .13), transparent 28%),
-    radial-gradient(circle at 20% 60%, rgba(37, 99, 235, .06), transparent 36%),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560' viewBox='0 0 560 560' fill='none'%3E%3Cg stroke='%232563eb' stroke-width='1.4' opacity='.055'%3E%3Ccircle cx='82' cy='104' r='28'/%3E%3Cpath d='M68 104h28M82 90v28M72 94l20 20M92 94l-20 20'/%3E%3Cpath d='M426 62c34 0 62 28 62 62 0 34-28 62-62 62-22 0-41-11-52-28 17 8 37 4 49-9 15-16 15-40 0-56-12-13-32-17-49-9 11-17 30-28 52-28Z'/%3E%3Cpath d='m170 322 28-28 28 28-28 28-28-28ZM198 294v-26M198 350v26M170 322h-26M226 322h26'/%3E%3Crect x='394' y='356' width='54' height='42' rx='6'/%3E%3Cpath d='M406 410h30M421 398v12M390 420h62'/%3E%3Cpath d='M76 458c0-27 22-49 49-49s49 22 49 49M100 458h50M125 409v-15M104 394h42'/%3E%3C/g%3E%3C/svg%3E");
-  background-position: center, center, center;
-  background-size: auto, auto, 560px 560px;
-}
-
-#home.qmark-home-original::before,
-#home.qmark-home-original::after {
-  position: absolute;
-  z-index: -1;
-  content: "";
-  border-radius: 50%;
-  pointer-events: none;
-  filter: blur(2px);
-}
-
-#home.qmark-home-original::before {
-  width: min(42vw, 540px);
-  aspect-ratio: 1;
-  top: 6%;
-  right: -14%;
-  background: radial-gradient(circle, rgba(255, 225, 161, .25), rgba(255, 225, 161, 0) 68%);
-}
-
-#home.qmark-home-original::after {
-  width: min(38vw, 460px);
-  aspect-ratio: 1;
-  bottom: -12%;
-  left: -14%;
-  background: radial-gradient(circle, rgba(37, 99, 235, .1), rgba(37, 99, 235, 0) 68%);
+  overflow: hidden;
+  background-color: var(--qmark-white);
+  background-image: none;
 }
 
 /* The original app loader stays mounted for app hydration, while this
@@ -205,25 +171,8 @@ div.fixed.inset-0.z-\[100\] {
 }
 
 #services {
-  position: relative;
-  background:
-    linear-gradient(180deg, #f5f8ff 0%, #fbfcff 52%, #f8fbff 100%);
-  border-top: 1px solid #e4ecfb;
-}
-
-#services::before,
-#work::before,
-#why-us::before,
-#contact::before {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: min(92%, 1120px);
-  height: 1px;
-  content: "";
-  background: linear-gradient(90deg, transparent, rgba(37, 99, 235, .18), transparent);
-  transform: translateX(-50%);
-  pointer-events: none;
+  background: var(--qmark-gray);
+  border-top: 1px solid #f0f1f3;
 }
 
 #services h2,
@@ -243,67 +192,23 @@ div.fixed.inset-0.z-\[100\] {
 }
 
 #services > div > div:last-child > div {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(113, 153, 222, .2);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, .9);
-  box-shadow: var(--qmark-shadow);
-  transition: border-color 260ms ease, box-shadow 260ms ease, transform 260ms ease;
+  border: 1px solid var(--qmark-line);
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(17, 17, 17, .025);
 }
 
 #services > div > div:last-child > div:hover {
-  border-color: rgba(37, 99, 235, .38);
-  box-shadow: 0 22px 48px rgba(37, 99, 235, .13);
+  border-color: rgba(37, 99, 235, .35);
+  box-shadow: 0 22px 44px rgba(37, 99, 235, .09);
 }
 
 #services > div > div:last-child > div > div:first-child {
-  border: 1px solid rgba(37, 99, 235, .08);
-  border-radius: 16px;
-  background: linear-gradient(145deg, #edf4ff, #f7faff);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9);
-}
-
-#services > div > div:last-child > div svg {
-  color: var(--qmark-blue);
-  stroke-width: 1.65;
+  border-radius: 15px;
+  background: #eef4ff;
 }
 
 #work {
-  position: relative;
-  background:
-    radial-gradient(circle at 12% 28%, rgba(37, 99, 235, .045), transparent 24%),
-    #ffffff;
-}
-
-#why-us {
-  position: relative;
-}
-
-#work > div > div:first-child > div:last-child {
-  border: 1px solid rgba(113, 153, 222, .18);
-  background: rgba(245, 248, 255, .8);
-  box-shadow: 0 8px 24px rgba(35, 72, 137, .05);
-}
-
-#work article {
-  overflow: hidden;
-  border: 1px solid rgba(113, 153, 222, .2);
-  border-radius: 20px;
-  background: #ffffff;
-  box-shadow: 0 12px 30px rgba(35, 72, 137, .07);
-  transition: border-color 260ms ease, box-shadow 260ms ease, transform 260ms ease;
-}
-
-#work article:hover {
-  border-color: rgba(37, 99, 235, .35);
-  box-shadow: 0 22px 46px rgba(35, 72, 137, .14);
-}
-
-#work article > div:first-child,
-#work article img,
-#work article video {
-  border-radius: 16px;
+  background: var(--qmark-white);
 }
 
 #work img,
@@ -317,32 +222,8 @@ div.fixed.inset-0.z-\[100\] {
 }
 
 #contact {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 85% 18%, rgba(235, 193, 108, .1), transparent 24%),
-    linear-gradient(180deg, #f6f9ff 0%, #ffffff 68%);
-  border-top: 1px solid #e4ecfb;
-}
-
-#contact form,
-#contact > div > div:last-child {
-  border-color: rgba(113, 153, 222, .18);
-}
-
-#contact input,
-#contact select,
-#contact textarea {
-  border-color: rgba(113, 153, 222, .22);
-  background: rgba(255, 255, 255, .86);
-  box-shadow: 0 4px 16px rgba(35, 72, 137, .035);
-}
-
-#contact input:focus,
-#contact select:focus,
-#contact textarea:focus {
-  border-color: rgba(37, 99, 235, .55);
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, .1);
+  background: #fbfcfe;
+  border-top: 1px solid #eef1f5;
 }
 
 #contact a,
@@ -356,73 +237,46 @@ div.fixed.inset-0.z-\[100\] {
 }
 
 footer {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 88% 8%, rgba(37, 99, 235, .22), transparent 28%),
-    linear-gradient(145deg, #07142e 0%, #0b1834 58%, #102452 100%) !important;
-  border-top: 1px solid rgba(104, 157, 255, .3) !important;
-}
-
-footer::before {
-  position: absolute;
-  top: 0;
-  right: 6%;
-  width: 170px;
-  height: 170px;
-  content: "";
-  border: 1px solid rgba(231, 180, 75, .16);
-  border-radius: 50%;
-  box-shadow:
-    0 0 0 18px rgba(231, 180, 75, .035),
-    0 0 0 38px rgba(231, 180, 75, .025);
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-footer a {
-  transition: color 220ms ease, background-color 220ms ease, transform 220ms ease;
-}
-
-footer a:hover {
-  color: #ffffff;
-  transform: translateY(-2px);
+  background: var(--qmark-ink) !important;
 }
 
 footer img {
   filter: none !important;
 }
 
-/* Existing floating navbar: keep its structure and interactions, but give it
-   the light glass panel and blue/gold detailing from the reference. */
-body > #root > div > div:first-child > div.fixed.top-4 > div,
-div.fixed.top-4 > div.max-w-3xl {
-  border-color: rgba(113, 153, 222, .24) !important;
-  background: rgba(255, 255, 255, .84) !important;
-  box-shadow: 0 12px 34px rgba(35, 72, 137, .1) !important;
+.qmark-hero-artwork {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: clamp(-150px, 2vw, 12px);
+  width: min(56vw, 720px);
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
-div.fixed.top-4 button {
-  transition: color 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+.qmark-hero-artwork__background {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: .92;
 }
 
-div.fixed.top-4 button:hover {
-  box-shadow: 0 4px 14px rgba(37, 99, 235, .08);
+.qmark-hero-artwork__logo {
+  position: absolute;
+  top: 40%;
+  left: 68%;
+  width: 19%;
+  height: 19%;
+  object-fit: contain;
+  transform: translate(-50%, -50%);
 }
 
-@media (max-width: 767px) {
-  #home.qmark-home-original {
-    background-size: auto, auto, 420px 420px;
-  }
-
-  #services > div > div:last-child > div,
-  #work article {
-    border-radius: 18px;
-  }
-
-  footer::before {
-    right: -18%;
-  }
+#home.qmark-home-original > div:first-child {
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes qmark-intro-rise {
@@ -456,6 +310,18 @@ div.fixed.top-4 button:hover {
   }
 }
 
+@media (max-width: 900px) {
+  .qmark-hero-artwork {
+    right: -18%;
+    width: min(62vw, 560px);
+    opacity: .82;
+  }
+
+  .qmark-hero-artwork__logo {
+    left: 68%;
+  }
+}
+
 @media (max-width: 640px) {
   .qmark-intro__progress {
     margin-top: 42px;
@@ -465,467 +331,20 @@ div.fixed.top-4 button:hover {
     gap: 8px;
     font-size: 8px;
   }
-}
 
-/* Reference composition layer
-   --------------------------------
-   The compiled app remains the source of truth for copy, links, state, and
-   motion. These classes only arrange those existing nodes into the supplied
-   premium Diwali composition. */
-
-#home.qmark-home-original {
-  min-height: 760px;
-  padding-top: 132px;
-  padding-bottom: 138px;
-  align-items: center;
-}
-
-#home.qmark-home-original .qmark-hero-copy {
-  position: relative;
-  z-index: 3;
-  width: min(100%, 1160px);
-  max-width: 1160px;
-  margin: 0 auto;
-  padding-right: min(45vw, 510px);
-  text-align: left;
-}
-
-#home.qmark-home-original .qmark-hero-badge {
-  display: block;
-  width: fit-content;
-  margin: 0 0 20px;
-}
-
-#home.qmark-home-original .qmark-hero-title {
-  max-width: 580px;
-  margin-bottom: 22px;
-  font-size: clamp(3.25rem, 6.6vw, 6.3rem);
-  line-height: .94;
-  letter-spacing: -.065em;
-}
-
-#home.qmark-home-original .qmark-hero-description {
-  max-width: 470px;
-  margin: 0 0 30px;
-  font-size: 1rem;
-  line-height: 1.75;
-}
-
-#home.qmark-home-original .qmark-hero-actions {
-  justify-content: flex-start;
-  margin-bottom: 0;
-}
-
-#home.qmark-home-original .qmark-hero-actions button {
-  min-height: 48px;
-  border-radius: 13px;
-  padding-inline: 24px;
-}
-
-#home.qmark-home-original .qmark-hero-offerings {
-  position: absolute;
-  z-index: 5;
-  left: 50%;
-  right: auto;
-  bottom: 32px;
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  width: min(calc(100% - 48px), 1160px);
-  margin: 0;
-  padding: 14px 20px;
-  border: 1px solid rgba(112, 150, 213, .2);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, .8);
-  box-shadow: 0 18px 50px rgba(38, 76, 139, .12);
-  backdrop-filter: blur(18px);
-  transform: translateX(-50%);
-}
-
-#home.qmark-home-original .qmark-hero-offerings > span {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 30px;
-  color: #6d7890;
-  font-size: .68rem;
-  letter-spacing: .12em;
-}
-
-#home.qmark-home-original .qmark-hero-offerings > span:not(:last-child)::after {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 1px;
-  height: 24px;
-  content: "";
-  background: #dfe8f6;
-  transform: translateY(-50%);
-}
-
-.qmark-hero-visual {
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  right: max(6vw, calc((100% - 1160px) / 2));
-  width: min(44vw, 520px);
-  aspect-ratio: 1;
-  transform: translateY(-52%);
-  pointer-events: none;
-}
-
-.qmark-hero-visual__halo {
-  position: absolute;
-  inset: 7%;
-  border: 1px solid rgba(255, 214, 137, .55);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 48%, rgba(255, 255, 255, .96) 0 24%, rgba(255, 242, 211, .45) 45%, rgba(255, 227, 163, 0) 72%);
-  box-shadow:
-    0 0 0 18px rgba(255, 228, 174, .12),
-    0 0 58px rgba(245, 194, 102, .24);
-  animation: qmark-diya-breathe 5.5s ease-in-out infinite;
-}
-
-.qmark-hero-visual__halo::before,
-.qmark-hero-visual__halo::after {
-  position: absolute;
-  content: "";
-  border: 1px solid rgba(37, 99, 235, .12);
-  border-radius: 50%;
-}
-
-.qmark-hero-visual__halo::before {
-  inset: 12%;
-}
-
-.qmark-hero-visual__halo::after {
-  inset: 22%;
-  border-color: rgba(255, 255, 255, .8);
-}
-
-.qmark-hero-visual__logo {
-  position: absolute;
-  z-index: 2;
-  top: 29%;
-  left: 50%;
-  width: 32%;
-  height: 32%;
-  object-fit: contain;
-  transform: translate(-50%, -50%);
-  filter: drop-shadow(0 10px 16px rgba(37, 99, 235, .18));
-}
-
-.qmark-hero-visual__diya-glow {
-  position: absolute;
-  right: 20%;
-  bottom: 17%;
-  width: 32%;
-  height: 18%;
-  border-radius: 50%;
-  background: rgba(255, 201, 95, .42);
-  filter: blur(20px);
-}
-
-.qmark-hero-visual__diya {
-  position: absolute;
-  right: 18%;
-  bottom: 16%;
-  width: 29%;
-  height: 13%;
-  border-radius: 50% 50% 45% 45%;
-  background: linear-gradient(180deg, #d8881a, #8b3c0e);
-  box-shadow: inset 0 7px 9px rgba(255, 224, 135, .55), 0 10px 20px rgba(123, 63, 13, .2);
-}
-
-.qmark-hero-visual__diya span {
-  position: absolute;
-  top: -70%;
-  left: 50%;
-  width: 18%;
-  height: 72%;
-  border-radius: 60% 40% 60% 40%;
-  background: linear-gradient(180deg, #fff7cf, #f4a61d 60%, rgba(244, 166, 29, 0));
-  filter: drop-shadow(0 0 12px #ffd46b);
-  transform: translateX(-50%) rotate(4deg);
-  animation: qmark-diya-flame 1.8s ease-in-out infinite;
-}
-
-.qmark-hero-visual__diya i {
-  position: absolute;
-  right: 10%;
-  bottom: 18%;
-  left: 10%;
-  height: 18%;
-  border-radius: 50%;
-  background: rgba(255, 217, 123, .58);
-}
-
-.qmark-reference-section {
-  position: relative;
-}
-
-.qmark-reference-grid {
-  align-items: stretch;
-}
-
-.qmark-reference-card {
-  min-width: 0;
-  border: 1px solid rgba(108, 150, 221, .2) !important;
-  border-radius: 20px !important;
-  background: rgba(255, 255, 255, .9) !important;
-  box-shadow: 0 12px 30px rgba(35, 72, 137, .07) !important;
-}
-
-.qmark-reference-card:hover {
-  border-color: rgba(37, 99, 235, .42) !important;
-  box-shadow: 0 22px 45px rgba(35, 72, 137, .14) !important;
-}
-
-.qmark-services-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 16px !important;
-}
-
-.qmark-service-card {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 18px;
-  align-items: start;
-  padding: 22px !important;
-}
-
-.qmark-service-card > div:first-child {
-  width: 56px;
-  height: 56px;
-  margin: 0 !important;
-  border: 1px solid rgba(37, 99, 235, .12);
-  border-radius: 16px;
-  background: linear-gradient(145deg, #eaf2ff, #f7faff) !important;
-}
-
-.qmark-service-card h3 {
-  margin-top: 2px;
-  color: #101a2f;
-  font-size: 1rem;
-}
-
-.qmark-service-card p {
-  color: #67738b;
-  font-size: .8rem;
-  line-height: 1.55;
-}
-
-.qmark-portfolio-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-  gap: 14px !important;
-}
-
-.qmark-portfolio-card {
-  padding: 8px !important;
-  border-radius: 18px !important;
-}
-
-.qmark-portfolio-card > div:first-child,
-.qmark-portfolio-card img,
-.qmark-portfolio-card video {
-  border-radius: 13px !important;
-}
-
-.qmark-reference-footer {
-  padding-top: 34px !important;
-  padding-bottom: 20px !important;
-  background:
-    radial-gradient(circle at 86% 0%, rgba(37, 99, 235, .28), transparent 30%),
-    linear-gradient(145deg, #07142e 0%, #0a1938 60%, #102757 100%) !important;
-}
-
-.qmark-footer-inner {
-  position: relative;
-  display: grid !important;
-  grid-template-columns: minmax(150px, 1.1fr) minmax(220px, 1.8fr) minmax(150px, 1fr) !important;
-  gap: 26px 46px !important;
-  align-items: center !important;
-  text-align: left !important;
-}
-
-.qmark-footer-block {
-  margin: 0 !important;
-}
-
-.qmark-footer-block-0 {
-  align-self: start;
-}
-
-.qmark-footer-block-0 img {
-  max-width: 130px;
-}
-
-.qmark-footer-block-1 {
-  max-width: 390px !important;
-  margin: 0 !important;
-  color: #d4def2 !important;
-  font-size: .95rem !important;
-  line-height: 1.6 !important;
-}
-
-.qmark-footer-block-2 {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px !important;
-  margin: 0 !important;
-}
-
-.qmark-footer-block-2 a {
-  display: grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  border: 1px solid rgba(151, 186, 255, .25);
-  border-radius: 12px !important;
-  background: rgba(255, 255, 255, .06);
-}
-
-.qmark-footer-block-3 {
-  grid-column: 1 / -1;
-  margin: 6px 0 0 !important;
-  padding-top: 18px;
-  border-top: 1px solid rgba(157, 186, 240, .16);
-}
-
-@keyframes qmark-diya-breathe {
-  0%, 100% { transform: scale(1); opacity: .9; }
-  50% { transform: scale(1.025); opacity: 1; }
-}
-
-@keyframes qmark-diya-flame {
-  0%, 100% { transform: translateX(-50%) rotate(4deg) scaleY(1); }
-  50% { transform: translateX(-50%) rotate(-4deg) scaleY(1.12); }
-}
-
-@media (max-width: 900px) {
-  #home.qmark-home-original {
-    min-height: 850px;
-  }
-
-  #home.qmark-home-original .qmark-hero-copy {
-    padding-right: min(34vw, 290px);
-  }
-
-  #home.qmark-home-original .qmark-hero-title {
-    font-size: clamp(3rem, 7vw, 5rem);
-  }
-
-  .qmark-hero-visual {
-    right: -7%;
-    width: min(48vw, 410px);
-  }
-
-  .qmark-portfolio-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  }
-}
-
-@media (max-width: 640px) {
-  #home.qmark-home-original {
-    min-height: 930px;
-    padding-top: 108px;
-    padding-bottom: 172px;
-  }
-
-  #home.qmark-home-original .qmark-hero-copy {
-    width: 100%;
-    padding: 0;
-    text-align: left;
-  }
-
-  #home.qmark-home-original .qmark-hero-badge {
-    margin-bottom: 16px;
-    padding: 8px 12px;
-    font-size: .65rem;
-  }
-
-  #home.qmark-home-original .qmark-hero-title {
-    max-width: 100%;
-    font-size: clamp(3rem, 14vw, 4.6rem);
-  }
-
-  #home.qmark-home-original .qmark-hero-description {
-    max-width: 300px;
-    font-size: .82rem;
-    line-height: 1.65;
-  }
-
-  #home.qmark-home-original .qmark-hero-actions {
-    align-items: flex-start;
-  }
-
-  #home.qmark-home-original .qmark-hero-actions button {
-    width: auto;
-    min-height: 44px;
-    padding-inline: 18px;
-    font-size: .82rem;
-  }
-
-  #home.qmark-home-original .qmark-hero-offerings {
-    right: 16px;
-    bottom: 20px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: calc(100% - 32px);
-    padding: 10px;
-    transform: none;
-  }
-
-  #home.qmark-home-original .qmark-hero-offerings > span {
-    min-height: 34px;
-    font-size: .56rem;
-  }
-
-  #home.qmark-home-original .qmark-hero-offerings > span:nth-child(2n)::after {
-    display: none;
-  }
-
-  .qmark-hero-visual {
+  .qmark-hero-artwork {
     top: auto;
-    right: -18%;
-    bottom: 126px;
-    width: 68vw;
+    right: -22%;
+    bottom: -50px;
+    width: 86vw;
     transform: none;
-    opacity: .88;
+    opacity: .74;
   }
 
-  .qmark-hero-visual__logo {
-    width: 29%;
-    height: 29%;
-  }
-
-  .qmark-services-grid,
-  .qmark-portfolio-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  .qmark-service-card {
-    grid-template-columns: auto minmax(0, 1fr);
-    padding: 17px !important;
-  }
-
-  .qmark-footer-inner {
-    grid-template-columns: 1fr !important;
-    gap: 18px !important;
-    text-align: center !important;
-  }
-
-  .qmark-footer-block-0,
-  .qmark-footer-block-1,
-  .qmark-footer-block-2 {
-    justify-self: center;
-  }
-
-  .qmark-footer-block-1 {
-    max-width: 310px !important;
-  }
-
-  .qmark-footer-block-2 {
-    justify-content: center;
+  .qmark-hero-artwork__logo {
+    top: 40%;
+    left: 68%;
+    width: 18%;
+    height: 18%;
   }
 }
