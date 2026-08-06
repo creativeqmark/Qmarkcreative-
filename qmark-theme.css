@@ -530,7 +530,7 @@ div.fixed.top-4 button:hover {
   bottom: 32px;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  width: min(100% - 48px, 1160px);
+  width: min(calc(100% - 48px), 1160px);
   margin: 0;
   padding: 14px 20px;
   border: 1px solid rgba(112, 150, 213, .2);
