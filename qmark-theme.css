@@ -525,7 +525,8 @@ div.fixed.top-4 button:hover {
 #home.qmark-home-original .qmark-hero-offerings {
   position: absolute;
   z-index: 5;
-  right: 50%;
+  left: 50%;
+  right: auto;
   bottom: 32px;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -537,7 +538,7 @@ div.fixed.top-4 button:hover {
   background: rgba(255, 255, 255, .8);
   box-shadow: 0 18px 50px rgba(38, 76, 139, .12);
   backdrop-filter: blur(18px);
-  transform: translateX(50%);
+  transform: translateX(-50%);
 }
 
 #home.qmark-home-original .qmark-hero-offerings > span {
