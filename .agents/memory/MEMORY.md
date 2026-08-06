@@ -1,2 +1,2 @@
 - [GitHub Pages pushes](github-pages-pushes.md) — PAT-backed HTTPS pushes may require basic-auth extraheaders when workspace Git integration credentials are unavailable.
-- [Homepage restoration boundary](homepage-restoration-boundary.md) — compiled React remains the exact homepage/footer structure; only a single requested hero artwork may be layered over it.
+- [Homepage restoration boundary](homepage-restoration-boundary.md) — compiled React remains the exact homepage/footer structure; only explicitly requested hero artwork or corner framing may be layered over it.

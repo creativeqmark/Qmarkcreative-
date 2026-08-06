@@ -24,6 +24,16 @@ body {
   background-image: none;
 }
 
+#home.qmark-home-original::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  content: "";
+  background: url("./qmark-diwali-corner-frame.svg") center / 100% 100% no-repeat;
+  opacity: .58;
+  pointer-events: none;
+}
+
 /* The original app loader stays mounted for app hydration, while this
    presentation layer owns the shorter, branded entry experience. */
 div.fixed.inset-0.z-\[100\] {
