@@ -1,0 +1,519 @@
+:root {
+  --qmark-blue: #2563eb;
+  --qmark-ink: #111111;
+  --qmark-white: #ffffff;
+  --qmark-gray: #f8f9fa;
+  --qmark-line: #e8ebf0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--qmark-white);
+  color: var(--qmark-ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* The original app loader stays mounted for app hydration, while this
+   presentation layer owns the shorter, branded entry experience. */
+div.fixed.inset-0.z-\[100\] {
+  display: none !important;
+}
+
+.qmark-intro {
+  --intro-progress: 0%;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--qmark-white);
+  color: var(--qmark-ink);
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 520ms cubic-bezier(.22, 1, .36, 1), transform 620ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.qmark-intro::before,
+.qmark-intro::after {
+  position: absolute;
+  content: "";
+  border: 1px solid rgba(37, 99, 235, .12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.qmark-intro::before {
+  width: min(62vw, 720px);
+  aspect-ratio: 1;
+  top: -28%;
+  right: -20%;
+}
+
+.qmark-intro::after {
+  width: min(44vw, 520px);
+  aspect-ratio: 1;
+  bottom: -30%;
+  left: -14%;
+}
+
+.qmark-intro.is-hidden {
+  opacity: 0;
+  transform: scale(1.025);
+  pointer-events: none;
+}
+
+.qmark-intro__inner {
+  position: relative;
+  z-index: 1;
+  width: min(100% - 40px, 460px);
+  text-align: center;
+  animation: qmark-intro-rise 700ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.qmark-intro__logo {
+  display: block;
+  width: clamp(96px, 13vw, 140px);
+  height: clamp(96px, 13vw, 140px);
+  margin: 0 auto 24px;
+  object-fit: contain;
+  animation: qmark-intro-logo 1000ms cubic-bezier(.22, 1, .36, 1) both;
+}
+
+.qmark-intro__wordmark {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 800;
+  letter-spacing: .22em;
+  line-height: .95;
+}
+
+.qmark-intro__wordmark span:last-child {
+  color: var(--qmark-blue);
+  font-size: .52em;
+  font-weight: 600;
+  letter-spacing: .38em;
+}
+
+.qmark-intro__subtitle {
+  margin: 0;
+  color: #697386;
+  font-size: 13px;
+  letter-spacing: .12em;
+}
+
+.qmark-intro__progress {
+  margin-top: 58px;
+  text-align: left;
+}
+
+.qmark-intro__steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: #9ba3b2;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.qmark-intro__steps span {
+  animation: qmark-step-color 2.6s ease-in-out both;
+}
+
+.qmark-intro__steps span:nth-child(2) { animation-delay: .45s; }
+.qmark-intro__steps span:nth-child(3) { animation-delay: .9s; }
+.qmark-intro__steps span:nth-child(4) { animation-delay: 1.35s; }
+
+.qmark-intro__track {
+  height: 2px;
+  overflow: hidden;
+  background: #e9edf2;
+}
+
+.qmark-intro__track span {
+  display: block;
+  width: var(--intro-progress);
+  height: 100%;
+  background: var(--qmark-blue);
+  transform-origin: left center;
+  animation: qmark-progress 2.55s cubic-bezier(.65, 0, .35, 1) forwards;
+}
+
+.qmark-intro__status {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 16px;
+  color: #7b8493;
+  font-size: 12px;
+}
+
+.qmark-intro__percent {
+  color: var(--qmark-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+#home.qmark-home-hero {
+  isolation: isolate;
+  min-height: min(780px, 92vh);
+  padding-top: 150px;
+  padding-bottom: 104px;
+  background:
+    radial-gradient(circle at 72% 42%, rgba(37, 99, 235, .06), transparent 25rem),
+    linear-gradient(180deg, #fff 0%, #fff 74%, #f8f9fa 100%);
+}
+
+#home.qmark-home-hero::before {
+  position: absolute;
+  inset: 22% auto auto 8%;
+  width: 1px;
+  height: 180px;
+  background: linear-gradient(180deg, transparent, rgba(17, 17, 17, .12), transparent);
+  content: "";
+}
+
+#home.qmark-home-hero > div {
+  position: relative;
+  z-index: 2;
+}
+
+#home.qmark-home-hero h1 {
+  max-width: 920px;
+  margin-right: auto;
+  margin-left: auto;
+  color: var(--qmark-ink);
+  font-size: clamp(3.15rem, 8.4vw, 7.2rem);
+  font-weight: 700;
+  letter-spacing: -.075em;
+  line-height: .95;
+}
+
+#home.qmark-home-hero h1 span {
+  color: var(--qmark-blue);
+}
+
+#home.qmark-home-hero > div > p {
+  max-width: 640px;
+  color: #596273;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.8;
+}
+
+#home.qmark-home-hero > div > div:first-child span {
+  border-color: rgba(37, 99, 235, .22);
+  background: #f8faff;
+  color: var(--qmark-blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+#home.qmark-home-hero button {
+  min-height: 56px;
+  border-radius: 999px;
+  padding-right: 30px;
+  padding-left: 30px;
+  font-size: 14px;
+  letter-spacing: .01em;
+  transition: transform 240ms cubic-bezier(.22, 1, .36, 1), box-shadow 240ms ease, background-color 240ms ease;
+}
+
+#home.qmark-home-hero button:hover {
+  transform: translateY(-3px);
+}
+
+.qmark-hero-art {
+  position: absolute;
+  top: 50%;
+  right: clamp(2%, 8vw, 12%);
+  z-index: -1;
+  width: clamp(250px, 30vw, 440px);
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.qmark-hero-art img {
+  position: absolute;
+  inset: 25%;
+  z-index: 2;
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(37, 99, 235, .13));
+  opacity: .94;
+  animation: qmark-float 7s ease-in-out infinite;
+}
+
+.qmark-hero-art__ring,
+.qmark-hero-art__circle,
+.qmark-hero-art__square {
+  position: absolute;
+  display: block;
+  border: 1px solid rgba(37, 99, 235, .25);
+}
+
+.qmark-hero-art__ring {
+  inset: 10%;
+  border-radius: 50%;
+  border-right-color: transparent;
+  transform: rotate(26deg);
+}
+
+.qmark-hero-art__circle {
+  top: 4%;
+  right: 19%;
+  width: 14%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--qmark-blue);
+  border: 0;
+  opacity: .84;
+}
+
+.qmark-hero-art__square {
+  bottom: 15%;
+  left: 14%;
+  width: 12%;
+  aspect-ratio: 1;
+  border-color: rgba(17, 17, 17, .24);
+  transform: rotate(35deg);
+}
+
+#services {
+  background: var(--qmark-gray);
+  border-top: 1px solid #f0f1f3;
+}
+
+#services h2,
+#work h2,
+#why-us h2,
+#contact h2 {
+  color: var(--qmark-ink);
+  letter-spacing: -.045em;
+}
+
+#services > div > div:first-child {
+  margin-bottom: 52px;
+}
+
+#services > div > div:first-child p {
+  color: #6c7482;
+}
+
+.qmark-service-focus {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0 0 58px;
+  overflow: hidden;
+  border: 1px solid var(--qmark-line);
+  background: var(--qmark-line);
+}
+
+.qmark-service-focus a {
+  display: flex;
+  min-height: 194px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 24px;
+  background: var(--qmark-white);
+  color: var(--qmark-ink);
+  text-decoration: none;
+  transition: background-color 240ms ease, color 240ms ease, transform 240ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.qmark-service-focus a:hover {
+  z-index: 1;
+  background: var(--qmark-blue);
+  color: var(--qmark-white);
+  transform: translateY(-4px);
+}
+
+.qmark-service-focus__number {
+  color: var(--qmark-blue);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.qmark-service-focus a:hover .qmark-service-focus__number {
+  color: rgba(255, 255, 255, .7);
+}
+
+.qmark-service-focus strong {
+  display: block;
+  font-size: 17px;
+  letter-spacing: -.02em;
+}
+
+.qmark-service-focus a > span:last-child {
+  color: #778091;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.qmark-service-focus a:hover > span:last-child {
+  color: rgba(255, 255, 255, .74);
+}
+
+#services > div > div:last-child > div {
+  border: 1px solid var(--qmark-line);
+  border-radius: 24px;
+  box-shadow: 0 10px 25px rgba(17, 17, 17, .025);
+}
+
+#services > div > div:last-child > div:hover {
+  border-color: rgba(37, 99, 235, .35);
+  box-shadow: 0 22px 44px rgba(37, 99, 235, .09);
+}
+
+#services > div > div:last-child > div > div:first-child {
+  border-radius: 15px;
+  background: #eef4ff;
+}
+
+#work {
+  background: var(--qmark-white);
+}
+
+#work img,
+#work video {
+  transition: transform 600ms cubic-bezier(.22, 1, .36, 1), filter 600ms ease;
+}
+
+#work article:hover img,
+#work article:hover video {
+  transform: scale(1.035);
+}
+
+#contact {
+  background: #fbfcfe;
+  border-top: 1px solid #eef1f5;
+}
+
+#contact a,
+#contact button {
+  transition: transform 220ms cubic-bezier(.22, 1, .36, 1), border-color 220ms ease, box-shadow 220ms ease;
+}
+
+#contact a:hover,
+#contact button:hover {
+  transform: translateY(-3px);
+}
+
+footer {
+  background: var(--qmark-ink) !important;
+}
+
+footer img {
+  filter: none !important;
+}
+
+@keyframes qmark-intro-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes qmark-intro-logo {
+  from { opacity: 0; transform: scale(.88); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes qmark-progress {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes qmark-step-color {
+  0%, 100% { color: #9ba3b2; }
+  40%, 65% { color: var(--qmark-blue); }
+}
+
+@keyframes qmark-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-9px) rotate(2deg); }
+}
+
+@media (max-width: 900px) {
+  .qmark-service-focus {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .qmark-hero-art {
+    top: 22%;
+    right: -12%;
+    width: 310px;
+    opacity: .32;
+  }
+
+  #home.qmark-home-hero {
+    min-height: 760px;
+    padding-top: 132px;
+  }
+}
+
+@media (max-width: 640px) {
+  .qmark-service-focus {
+    grid-template-columns: 1fr;
+    margin-bottom: 44px;
+  }
+
+  .qmark-service-focus a {
+    min-height: 148px;
+  }
+
+  .qmark-intro__progress {
+    margin-top: 42px;
+  }
+
+  .qmark-intro__steps {
+    gap: 8px;
+    font-size: 8px;
+  }
+
+  #home.qmark-home-hero {
+    min-height: 720px;
+    padding-top: 120px;
+    padding-bottom: 76px;
+  }
+
+  #home.qmark-home-hero h1 {
+    font-size: clamp(2.85rem, 14vw, 5rem);
+    letter-spacing: -.065em;
+  }
+
+  #home.qmark-home-hero > div > p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .qmark-hero-art {
+    top: 19%;
+    right: -28%;
+    width: 280px;
+    opacity: .24;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
