@@ -360,3 +360,44 @@ footer img {
     height: 18%;
   }
 }
+
+@media (max-width: 768px) {
+  #home.qmark-home-original {
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 48px;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  #home.qmark-home-original > div:first-child {
+    width: 100%;
+    text-align: center;
+  }
+
+  .qmark-hero-artwork {
+    position: relative;
+    inset: auto;
+    order: 2;
+    flex: 0 0 auto;
+    width: min(100%, 560px);
+    height: auto;
+    margin: 20px auto 0;
+    aspect-ratio: auto;
+    transform: none;
+    opacity: .86;
+  }
+
+  .qmark-hero-artwork__background {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .qmark-hero-artwork__logo {
+    top: 40%;
+    left: 68%;
+    width: 18%;
+    height: 18%;
+  }
+}
