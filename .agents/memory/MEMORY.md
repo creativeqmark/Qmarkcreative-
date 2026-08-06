@@ -1,0 +1,1 @@
+- [GitHub Pages pushes](github-pages-pushes.md) — PAT-backed HTTPS pushes may require basic-auth extraheaders when workspace Git integration credentials are unavailable.
