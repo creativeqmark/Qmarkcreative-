@@ -1,1 +1,2 @@
 - [GitHub Pages pushes](github-pages-pushes.md) — PAT-backed HTTPS pushes may require basic-auth extraheaders when workspace Git integration credentials are unavailable.
+- [Homepage restoration boundary](homepage-restoration-boundary.md) — the compiled React hero is the source of truth; enhancement scripts must not rewrite it or downstream sections.
