@@ -26,10 +26,18 @@
     hero.appendChild(artwork);
   }
 
+  function removeHeroOfferings(hero) {
+    var copy = hero.firstElementChild;
+    if (!copy) return;
+    var offerings = copy.children[4];
+    if (offerings) offerings.remove();
+  }
+
   function enhanceHomepage() {
     var hero = document.getElementById("home");
     if (!hero) return false;
     hero.classList.add("qmark-home-original");
+    removeHeroOfferings(hero);
     addHeroArtwork(hero);
 
     var navbarLogo = document.querySelector("nav img[src*='qmark-logo.png']");

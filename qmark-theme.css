@@ -248,8 +248,8 @@ footer img {
   position: absolute;
   z-index: 0;
   top: 50%;
-  right: clamp(-150px, 2vw, 12px);
-  width: min(56vw, 720px);
+  right: clamp(-170px, 1vw, 12px);
+  width: min(60vw, 780px);
   aspect-ratio: 1;
   transform: translateY(-50%);
   pointer-events: none;
@@ -262,6 +262,8 @@ footer img {
   object-fit: cover;
   object-position: center;
   opacity: .92;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 17%, #000 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 17%, #000 100%);
 }
 
 .qmark-hero-artwork__logo {
@@ -313,7 +315,7 @@ footer img {
 @media (max-width: 900px) {
   .qmark-hero-artwork {
     right: -18%;
-    width: min(62vw, 560px);
+    width: min(66vw, 600px);
     opacity: .82;
   }
 
@@ -336,7 +338,7 @@ footer img {
     top: auto;
     right: -22%;
     bottom: -50px;
-    width: 86vw;
+    width: 90vw;
     transform: none;
     opacity: .74;
   }
