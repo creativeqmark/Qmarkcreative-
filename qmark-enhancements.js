@@ -27,21 +27,6 @@
     hero.appendChild(art);
   }
 
-  function addServiceFocus(services) {
-    if (services.querySelector(".qmark-service-focus")) return;
-    var heading = services.querySelector("h2");
-    if (!heading) return;
-    var focus = document.createElement("div");
-    focus.className = "qmark-service-focus";
-    focus.setAttribute("aria-label", "Featured services");
-    focus.innerHTML =
-      '<a href="#contact"><span class="qmark-service-focus__number">01</span><strong>Website Design</strong><span>Digital spaces with clarity and character.</span></a>' +
-      '<a href="#contact"><span class="qmark-service-focus__number">02</span><strong>Brand Identity</strong><span>A visual language people remember.</span></a>' +
-      '<a href="#contact"><span class="qmark-service-focus__number">03</span><strong>Social Media Design</strong><span>Consistent content built to stand out.</span></a>' +
-      '<a href="#contact"><span class="qmark-service-focus__number">04</span><strong>UI/UX Design</strong><span>Thoughtful experiences from first click.</span></a>';
-    heading.parentNode.parentNode.insertBefore(focus, heading.parentNode.nextSibling);
-  }
-
   function enhanceHomepage() {
     var hero = document.getElementById("home");
     if (!hero) return false;
@@ -74,7 +59,6 @@
     var services = document.getElementById("services");
     if (services) {
       services.classList.add("qmark-home-section");
-      addServiceFocus(services);
     }
     var work = document.getElementById("work");
     if (work) work.classList.add("qmark-home-section");
